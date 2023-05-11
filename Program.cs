@@ -3,28 +3,22 @@ using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 using DSharpPlus.SlashCommands;
 
-namespace ConsoleApp1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+namespace ConsoleApp1 {
+    class Program {
+        static void Main(string[] args) {
             new Program().MainAsync().GetAwaiter().GetResult();
         }
 
         public static DiscordClient Discord { get; private set; }
 
-        public Task Status(DiscordClient c, HeartbeatEventArgs e)
-        {
+        public Task Status(DiscordClient c, HeartbeatEventArgs e) {
             var x = new DiscordActivity(name: "", type: ActivityType.Custom);
             Discord.UpdateStatusAsync(x);
             return Task.CompletedTask;
         }
-        public async Task MainAsync()
-        {
+        public async Task MainAsync() {
 
-            Discord = new DiscordClient(new DiscordConfiguration()
-            {
+            Discord = new DiscordClient(new DiscordConfiguration() {
                 Token = "",
                 TokenType = TokenType.Bot,
                 MinimumLogLevel = Microsoft.Extensions.Logging.LogLevel.Debug,
