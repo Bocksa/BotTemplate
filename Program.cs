@@ -12,8 +12,8 @@ namespace ConsoleApp1 {
         public static DiscordClient Discord { get; private set; }
 
         public Task Status(DiscordClient c, HeartbeatEventArgs e) {
-            var x = new DiscordActivity(name: "", type: ActivityType.Custom);
-            Discord.UpdateStatusAsync(x);
+            //var x = new DiscordActivity(name: "", type: ActivityType.Custom);
+            //Discord.UpdateStatusAsync(x);
             return Task.CompletedTask;
         }
         public async Task MainAsync() {
