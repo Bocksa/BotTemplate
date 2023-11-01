@@ -19,7 +19,7 @@ namespace ConsoleApp1 {
         public async Task MainAsync() {
 
             Discord = new DiscordClient(new DiscordConfiguration() {
-                Token = "",
+                Token = File.ReadAllText("C:\\Auth\\BotToken.auth"), // Enter your token at C:\Auth\BotToken.auth
                 TokenType = TokenType.Bot,
                 MinimumLogLevel = Microsoft.Extensions.Logging.LogLevel.Debug,
                 LogTimestampFormat = "MMM dd yyyy - hh:mm:ss tt",
@@ -28,7 +28,7 @@ namespace ConsoleApp1 {
 
             Discord.Heartbeated += Status;
 
-            var commandsConfig = new SlashCommandsConfiguration { }; // Currently blank idk if i will ever need it
+            var commandsConfig = new SlashCommandsConfiguration { }; // If you need to configure, configure here
             var slash = Discord.UseSlashCommands(commandsConfig);
 
             slash.RegisterCommands<ConsoleApp1.Commands.SlashCommands>(); // Registers all commands in ConsoleApp1 > Commands > SlashCommands
